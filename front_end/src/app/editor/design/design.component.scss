@@ -1,0 +1,114 @@
+  .design-outer {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .drag-container.template-container {
+    width: 75%;
+    display: inline-block;
+    margin: 15px 0;
+    border: 2px dashed #90c9e4;
+    vertical-align: top;
+    .drag-list {
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
+  }
+
+  .drag-container.design-container {
+    width: 17%;
+    display: inline-block;
+    margin: 15px;
+    border: solid 1px;
+    border-color: rgb(132, 146, 166);
+    background: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    vertical-align: top;
+  }
+  
+  .drag-list {
+    min-height: 350px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .drag-box {
+    color: rgba(0, 0, 0, 0.87);
+    background: white;
+  }
+
+  .drag-box.design-element:hover {
+    box-shadow: 0px 3px 0 #cecece;
+    -webkit-box-shadow: 0px 3px 0 #cecece;
+    -moz-box-shadow: 0px 3px 0 #cecece;
+    border: 1px solid #b4b4b4;
+  }
+  .drag-box.design-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: move;
+    width: 90px;
+    height: 100px;
+    margin: 10px;
+    border: solid 1px #ccc;
+    font-size: 65px;
+    border-radius: 3px;
+    transition: box-shadow 0.2s;
+    background: #fff;
+    span {
+      font-size: 11px;
+    }
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+ 
+  .drag-list.cdk-drop-list-dragging .drag-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+.drag-container {
+  ::ng-deep .editing {
+    padding: 5px;
+  }
+  ::ng-deep .section {
+    text-align: center;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    width: calc(100% - 20px);
+  }
+  ::ng-deep .section:not(.editing):hover {
+    outline: 2px dashed #DD9700;
+    cursor: default;
+  }
+  ::ng-deep .editing {
+    border: 2px dashed #DD9700;
+  }
+  table {
+    width: 100%;
+  }
+}
+.merge-container {
+  ::ng-deep .mat-form-field {
+    width: 100px;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="preview-container">
+    <table *ngFor="let row of rows; ">
+        <tr>
+            <td *ngFor="let section of template | filterRow:row; let col=index;">
+                <div class="drag-box">
+                    <ng-container dynamicElement [section]="section" [i]="section.index" [editing]="false">
+                    </ng-container>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!hideBtn">
+    <button (click)="generateTemplate()" mat-raised-button color="primary" class="generate-btn" [disabled]="showLoader">
+        <fa name="download"></fa>Generate Template
+    </button>
+    <div *ngIf="showLoader" class="loader">
+        <p>Template download is in progress...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+</div>

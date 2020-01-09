@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="title">Contacts</div>
+    <div fxLayout="row" fxLayoutGap="30px">
+      <button mat-raised-button (click)="onAddContacts()">
+        <mat-icon>person_add</mat-icon>
+        Add a contact
+      </button>
+      <button mat-raised-button color="primary" (click)="onImportContacts()">
+        <mat-icon>save_alt</mat-icon>
+        Import contacts
+      </button>
+    </div>
+  </div>
+  <div *ngIf="contactLists.length>0; else add_users">
+    <div>
+      <mat-form-field>
+        <mat-select (selectionChange)="updateUserList()" [(ngModel)]="selectedList">
+          <mat-option *ngFor="let list of contactLists" [value]="list">
+            {{list}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="table-cont">
+      <table mat-table [dataSource]="contacts" class="mat-elevation-z8 users-table">
+        
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> First Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <ng-template #add_users>
+    <p>Add users to see them here !</p>
+  </ng-template>
+</div>

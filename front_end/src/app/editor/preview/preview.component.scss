@@ -1,0 +1,25 @@
+.preview-container {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    ::ng-deep .section {
+        text-align: center;
+        padding: 5px;
+        display: inline-block;
+        margin: 5px;
+        width: calc(100% - 20px);
+      }
+      table {
+        width: 100%;
+      }
+}
+.generate-btn {
+    margin: 20px auto;
+    display: block;
+}  
+.loader {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}

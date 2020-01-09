@@ -1,0 +1,20 @@
+<div fxLayoutAlign="center center" class="login-cont">
+  <mat-card class="card-cont">
+    <div class="header" fxLayoutAlign="center center">
+      <span>Log In</span>
+    </div>
+    <div fxLayout="column" fxLayoutGap="25px" class="fields">
+      <mat-form-field appearance="outline" [floatLabel]="'always'">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="username" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" [floatLabel]="'always'">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [(ngModel)]="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" color="primary" (click)="onLogIn()" [disabled]="!username || !password">Log In</button>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,14 @@
+<div class="import-cont" fxLayout="column" fxLayoutGap="50px">
+  <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="start center">
+    <mat-form-field>
+      <input matInput placeholder="Enter list name" [(ngModel)]="listName">
+    </mat-form-field>
+    <input type="file" [disabled]="!listName" (change)="onFileChange($event)" />
+  </div>
+  <div *ngIf="showMessage">
+    {{listName}} added successfully!
+  </div>
+  <a download="users" target="_blank" href="/assets/sample/sample.xlsx">
+    Click here to download sample
+  </a>
+</div>

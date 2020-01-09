@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+.layout-outer {
+  height: 100vh;
+  color: #000;
+}
+.header {
+  background-color: #044a75;
+  height: 70px;
+  color: #dfdfdf;
+  padding: 0px 50px;
+}
+.menu {
+  color: #dfdfdf;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.content {
+  // background-color:  #2f353a;
+  background-color: white;
+  height: calc(100% - 70px);
+}
+.side-toggle {
+  cursor: pointer;
+}
+.active-link {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}

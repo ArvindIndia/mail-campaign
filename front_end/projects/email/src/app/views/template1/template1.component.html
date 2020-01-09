@@ -1,0 +1,42 @@
+<div *ngIf="sections">
+  <div class="template1">
+    <div class="header">
+      <div class="logo">
+        <a class="brand-link section" [ngClass]="{'editing': index === 0}" id="base-0" [style.background-color]="sections[0].style.backgroundColor">
+          <img [src]="sections[0].url" />
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="section" [ngClass]="{'editing': index === 1}" id="base-1" [style.font-size]="sections[1].style.fontSize" [style.color]="sections[1].style.fontColor"
+        [style.background-color]="sections[1].style.backgroundColor" [style.font-weight]="sections[1].style.fontWeight" [style.text-align]="sections[1].style.textAlign">
+        {{sections[1].text}}</div>
+      <div>
+        <p class="section" [ngClass]="{'editing': index === 2}" id="base-2" [style.font-size]="sections[2].style.fontSize" [style.color]="sections[2].style.fontColor"
+          [style.background-color]="sections[2].style.backgroundColor" [style.font-weight]="sections[2].style.fontWeight" [style.text-align]="sections[2].style.textAlign">
+          {{sections[2].text}}</p>
+        <p class="section" [ngClass]="{'editing': index === 3}" id="base-3" [style.font-size]="sections[3].style.fontSize" [style.color]="sections[3].style.fontColor"
+          [style.background-color]="sections[3].style.backgroundColor" [style.font-weight]="sections[3].style.fontWeight" [style.text-align]="sections[3].style.textAlign">
+          {{sections[3].text}}
+        </p>
+        <p class="section" [ngClass]="{'editing': index === 4}" id="base-4" [style.font-size]="sections[4].style.fontSize" [style.color]="sections[4].style.fontColor"
+          [style.background-color]="sections[4].style.backgroundColor" [style.font-weight]="sections[4].style.fontWeight" [style.text-align]="sections[4].style.textAlign">
+          {{sections[4].text}}
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="notification-preferences">
+        <a class="section" [ngClass]="{'editing': index === 5}" id="base-5" [style.font-size]="sections[5].style.fontSize" [style.color]="sections[5].style.fontColor"
+          [style.background-color]="sections[5].style.backgroundColor" [style.font-weight]="sections[5].style.fontWeight" [style.text-align]="sections[5].style.textAlign">
+          {{sections[5].text}}
+        </a>
+        <span>|</span>
+        <a class="section" [ngClass]="{'editing': index === 6}" id="base-6" [style.font-size]="sections[6].style.fontSize" [style.color]="sections[6].style.fontColor"
+          [style.background-color]="sections[6].style.backgroundColor" [style.font-weight]="sections[6].style.fontWeight" [style.text-align]="sections[6].style.textAlign">
+          {{sections[6].text}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

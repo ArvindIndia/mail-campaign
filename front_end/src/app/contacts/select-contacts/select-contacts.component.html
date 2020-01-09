@@ -1,0 +1,26 @@
+<div class="recepient-list">
+
+  <div fxLayout="row" fxLayoutGap="40px" *ngIf="contactLists.length > 0; else add_contacts">
+    <mat-form-field>
+      <mat-label>Select recepient list</mat-label>
+      <mat-select [(ngModel)]="recepientList" multiple>
+        <mat-option *ngFor="let list of contactLists" [value]="list">{{list}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button (click)="sendEmail()" mat-raised-button color="primary" class="send-btn" [disabled]="showLoader">
+      Send Email
+    </button>
+  </div>
+
+  <ng-template #add_contacts>
+    <div fxLayout="column" fxLayoutGap="15px">
+      <p>Add contacts to view them here</p>
+      <button mat-raised-button color="primary" (click)="onAddContacts()" class="add-contacts">
+        <mat-icon>person_add</mat-icon>
+        Add contacts
+      </button>
+    </div>
+  </ng-template>
+
+</div>

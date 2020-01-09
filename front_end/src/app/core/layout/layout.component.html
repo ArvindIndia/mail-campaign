@@ -1,0 +1,22 @@
+<div fxLayout="column" class="layout-outer" *ngIf="loggedIn; else login_template">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <div class="brand"></div>
+      <div class="menu-items" fxLayout="row" fxLayoutGap="20px">
+        <a routerLink="/dashboard" routerLinkActive="active-link" class="menu">Dashboard</a>
+        <a routerLink="/editor/basic" routerLinkActive="active-link" class="menu">Editor</a>
+        <a routerLink="/editor/design" routerLinkActive="active-link" class="menu">Design</a>
+        <a routerLink="/contacts" routerLinkActive="active-link" class="menu">Contacts</a>
+      </div>
+    </div>
+    <div (click)="loggedIn = false">
+      <b class="menu">{{username}}</b>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<ng-template #login_template>
+  <app-login (userLogin)="onLogInSuccess()"></app-login>
+</ng-template>

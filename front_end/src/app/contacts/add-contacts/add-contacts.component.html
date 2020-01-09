@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutGap="15px" class="add-contact">
+  <mat-form-field>
+    <input matInput placeholder="Enter first name" [(ngModel)]="firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter last name" [(ngModel)]="lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter email" [(ngModel)]="email">
+  </mat-form-field>
+  <mat-select [(ngModel)]="listName" *ngIf="contactLists.length > 0">
+    <mat-option *ngFor="let list of contactLists" [value]="list">
+      {{list}}
+    </mat-option>
+  </mat-select>
+  <mat-form-field>
+    <input matInput placeholder="Add new list" [(ngModel)]="newListName">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onAddContact()" class="add-btn">Add contact</button>
+</div>

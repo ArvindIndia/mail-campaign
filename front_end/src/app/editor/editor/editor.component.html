@@ -1,0 +1,73 @@
+<div class="main" fxLayout="row">
+    <div class="view" fxFlex="70%">
+        <router-outlet></router-outlet>
+        <div fxLayout="row" fxLayoutAlign="end center" class="primary-btn">
+            <button (click)="preview()" mat-raised-button color="primary">Preview Template</button>
+        </div>
+    </div>
+    <div class="editor" fxFlex="30%" *ngIf="sections?.length">
+        <mat-tab-group>
+            <mat-tab label="Content">
+                <div fxLayout="column" fxLayoutGap="15px" class="tab-content">
+                    <mat-form-field *ngIf="sections[i].type === 'text' || sections[i].type === 'button'" appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Text</mat-label>
+                        <textarea rows="3" [(ngModel)]="sections[i].text" matInput placeholder="Edit here..."></textarea>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="sections[i].type === 'button'" appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Link</mat-label>
+                        <input matInput [(ngModel)]="sections[i].link">
+                    </mat-form-field>
+                    <div *ngIf="sections[i].type === 'image'">
+                        <input type="file" name="image" (change)="fileProgress($event)" />
+                        <div *ngIf="uploadedFilePath">
+                            {{uploadedFilePath}}
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Style">
+                <div fxLayout="column" fxLayoutGap="15px" class="tab-content">
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Font size</mat-label>
+                        <mat-select [(ngModel)]="sections[i].style.fontSize">
+                            <mat-option *ngFor="let size of fontSize" [value]="size">
+                                {{size}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Font color</mat-label>
+                        <input matInput [(colorPicker)]="sections[i].style.fontColor" [cpPosition]="'bottom'" [style.background]="sections[i].style.fontColor"
+                        />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Background color</mat-label>
+                        <input matInput [(colorPicker)]="sections[i].style.backgroundColor" [cpPosition]="'bottom'" [style.background]="sections[i].style.backgroundColor"
+                        />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Font weight</mat-label>
+                        <mat-select [(ngModel)]="sections[i].style.fontWeight">
+                            <mat-option *ngFor="let weight of fontWeight" [value]="weight">
+                                {{weight}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Text Align</mat-label>
+                        <mat-select [(ngModel)]="sections[i].style.textAlign">
+                            <mat-option *ngFor="let align of textAlign" [value]="align">
+                                {{align}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+        <div class="save-btn">
+            <button (click)="submit()" mat-raised-button color="primary">
+                <fa name="check"></fa>Save Template
+            </button>
+        </div>
+    </div>
+</div>
