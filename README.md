@@ -26,7 +26,7 @@ echo "# gcloudsample" >> README.md
 git init
 git add *
 git commit -m "first commit"
-git remote add origin https://github.com/ArvindIndia/gcloudsample.git
+git remote add origin https://github.com/ArvindIndia/mailer-campaign.git
 git push -u origin master
 
 GCLOUD
