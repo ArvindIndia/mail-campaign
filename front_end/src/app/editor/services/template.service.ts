@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class TemplateService {
 
-  private baseUrl = "http://localhost:8200/";
+  private baseUrl = "http://localhost:4200/";
 
   constructor(private http: HttpClient) {
 
@@ -15,6 +15,14 @@ export class TemplateService {
 
   saveTemplate(request) {
     const url = this.getUri('emails/addTemplate');
+
+    return this.http
+      .post(url, request, this.getOptions())
+      .toPromise();
+  }
+
+  sendMail(request) {
+    const url = this.getUri('emails/sendMail');
 
     return this.http
       .post(url, request, this.getOptions())

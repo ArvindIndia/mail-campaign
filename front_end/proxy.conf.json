@@ -1,6 +1,10 @@
 {
 	"/user" :{
-		"target" : "http://localhost:4040",
+		"target" : "http://localhost:8200",
+		"secure" : false
+	},
+	"/emails" :{
+		"target" : "http://localhost:8200",
 		"secure" : false
 	}
 }

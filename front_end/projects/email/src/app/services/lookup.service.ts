@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class LookupService {
 
-    private baseUrl = "http://localhost:8200/";
+    private baseUrl = "http://localhost:4200/";
 
     constructor(private http: HttpClient) {
 

@@ -53,6 +53,20 @@ export class EditorComponent implements OnInit {
     });
   }
 
+  sendmail() {
+    const request = {
+      mailSubject: 'Campaign from Angular',
+      listName: 'STGPW',
+      createdBy: 'arvind'
+    }
+    this.templateService.sendMail(request).then(response => {
+      this.router.navigate([ this.previewUrl + response[ 'templateId' ] ]);
+    }).catch(() => {
+      localStorage.setItem('request', JSON.stringify(request));
+      this.router.navigate([ this.previewUrl + '0' ]);
+    });
+  }
+
   preview() {
     const request = {
       templateName: 'base',
