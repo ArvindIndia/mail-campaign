@@ -54,9 +54,9 @@ public class CampaignUserController {
 	public List<CampaignContactDTO> fetchContactsByList(@PathVariable String listName) {
 		return userService.fetchContactsByList(listName);
 	}
-	
-	@RequestMapping(value="/user/contact/all", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<CampaignContactDTO> getAllContacts() {
-		return userService.getAllContacts();
+		
+	@RequestMapping(value="/user/contact/lists", method=RequestMethod.GET, produces=MediaType.ALL_VALUE)
+	public List<String> fetchContactLists() {
+		return userService.fetchContactLists();
 	}
 }

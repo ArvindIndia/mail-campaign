@@ -73,15 +73,15 @@ public class MailTemplateService {
 			messageRepo.saveAndFlush(mailMessage);
 			
 			if(flag.equals("N")) 
-				return "<div align=\"center\" style=\"border-style: double;color: red;font-size: 20;\">"+
-				"<p><b>You would be missing out on exciting offers !!!</b></p>"+
+				return "<div align=\"center\" style=\"border-style: double;color: red;font-size: 20;width: 70%;margin: 15%;\">"+
+				"<p><b>You would be missing out on exciting rewards !!!</b></p>"+
 				"<p><b>Check the mail and click subscribe to be part of the campaign.</b></p><p></p></div>";
 			else
-				return "<div align=\"center\" style=\"border-style: double;color: blue;font-size: 20;\">"+
+				return "<div align=\"center\" style=\"border-style: double;color: blue;font-size: 20;width: 70%;margin: 15%;\">"+
 				"<p><b>Thanks for subscribing to the campaign. </b></p>"+
-				"<p><b>Exciting offers await you !!!</b></p><p></p></div>";
+				"<p><b>Exciting rewards await you !!!</b></p><p></p></div>";
 		}
-		return "<div align=\"center\" style=\"border-style: double;color: red;font-size: 20;\">"+
+		return "<div align=\"center\" style=\"border-style: double;color: red;font-size: 20;width: 70%;margin: 15%;\">"+
 			"<p><b>Oops, something has gone wrong !!!</b></p>"+
 			"<p><b>Check the mail and subscribe again.</b></p><p></p></div>";
 	}

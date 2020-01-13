@@ -33,7 +33,7 @@ export class Template1Component implements OnInit {
               }
             },
             {
-              text: 'The Sale is LIVE !!!!!',
+              text: 'The Sale is LIVE NOWW !!!!!',
               style: {
                 fontSize: '',
                 fontColor: '',

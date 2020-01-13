@@ -21,6 +21,14 @@ export class TemplateService {
       .toPromise();
   }
 
+  getList() {
+    const url = this.getUri('user/contact/lists');
+
+    return this.http
+      .get(url, this.getOptions())
+      .toPromise();
+  }
+
   sendMail(request) {
     const url = this.getUri('emails/sendMail');
 
@@ -32,11 +40,9 @@ export class TemplateService {
   getTemplate(request) {
     const url = this.getUri('emails/getTemplate/');
 
-    this.http
+    return this.http
       .get(url + request, this.getOptions())
-      .toPromise().then(response => {
-        console.log('json output ', response)
-      })
+      .toPromise();
   }
 
   generateTemplate() {

@@ -19,19 +19,27 @@ export class EditorComponent implements OnInit {
   public fileData: File = null;
   public uploadedFilePath: string = null;
   private previewUrl: string;
+  public campaignName: string;
+  public mailSubject: string;
+  public listArray;
+  public listName: string;
 
   constructor(private templatePlaceholdersService: TemplatePlaceholdersService, private templateService: TemplateService,
     private router: Router) {
-    this.i = null;
-    this.templatePlaceholdersService.getSections().subscribe(response => {
-      this.sections = response;
+    this.i = 0;
+      this.templateService.getTemplate(22).then(response => {
+        this.sections = JSON.parse(response['sections']);
     });
-    this.templatePlaceholdersService.getIndex().subscribe(response => {
-      this.i = response;
-    });
+    //this.templatePlaceholdersService.getIndex().subscribe(response => {
+     // this.i = response;
+    //});
     this.fontSize = [ '10px', '11px', '12px', '25px', '40px' ];
     this.textAlign = [ 'left', 'right', 'center' ];
     this.fontWeight = [ '400', '500', '600', '800' ];
+    this.templateService.getList().then(response => {
+      console.log(response);
+      this.listArray = response;
+    });
   }
 
   ngOnInit() {
@@ -55,8 +63,9 @@ export class EditorComponent implements OnInit {
 
   sendmail() {
     const request = {
-      mailSubject: 'Campaign from Angular',
-      listName: 'STGPW',
+      campaignName: this.campaignName,
+      mailSubject: this.mailSubject,
+      listName: this.listName,
       createdBy: 'arvind'
     }
     this.templateService.sendMail(request).then(response => {

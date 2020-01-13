@@ -52,6 +52,7 @@ public class CampaignUserService {
 	}
 	
 	public List<CampaignContactDTO> fetchContactsByList(String listName) {
+		if(listName == null || listName.equalsIgnoreCase("all")) listName="%";
 		List<CampaignContactDTO> contactList = new ArrayList<CampaignContactDTO>();
 		for(CampaignContact contact: contactRepo.findContactsByList(listName)) {
 			contactList.add(CampaignContactDTO.valueOf(contact));
@@ -59,11 +60,7 @@ public class CampaignUserService {
 		return contactList;
 	}
 	
-	public List<CampaignContactDTO> getAllContacts() {
-		List<CampaignContactDTO> contactList = new ArrayList<CampaignContactDTO>();
-		for(CampaignContact contact: contactRepo.findAll()) {
-			contactList.add(CampaignContactDTO.valueOf(contact));
-		}
-		return contactList;
+	public List<String> fetchContactLists() {
+		return contactRepo.fetchContactLists();
 	}
 }

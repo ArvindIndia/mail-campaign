@@ -3,10 +3,37 @@
         <router-outlet></router-outlet>
         <div fxLayout="row" fxLayoutAlign="end center" class="primary-btn">
             <button (click)="preview()" mat-raised-button color="primary">Preview Template</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="submit()" mat-raised-button color="primary"><fa name="check"></fa> Save Template</button>
         </div>
     </div>
     <div class="editor" fxFlex="30%" *ngIf="sections?.length">
         <mat-tab-group>
+            <mat-tab label="Mail">
+                <div fxLayout="column" fxLayoutGap="5px" class="tab-content">
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Campaign Name</mat-label>
+                        <textarea rows="1" [(ngModel)]="campaignName" matInput placeholder="Provide details here..."></textarea>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Campaign Subject</mat-label>
+                        <textarea rows="1" [(ngModel)]="mailSubject" matInput placeholder="Provide mail subject here..."></textarea>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" [floatLabel]="'always'">
+                        <mat-label>Contact List</mat-label>
+                        <mat-select [(ngModel)]="listName">
+                            <mat-option *ngFor="let listName of listArray" [value]="listName">
+                                {{listName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="save-btn">
+                    <button (click)="sendmail()" mat-raised-button color="primary">
+                        <fa name="check"></fa> Send Mail
+                    </button>
+                </div>        
+            </mat-tab>
             <mat-tab label="Content">
                 <div fxLayout="column" fxLayoutGap="15px" class="tab-content">
                     <mat-form-field *ngIf="sections[i].type === 'text' || sections[i].type === 'button'" appearance="outline" [floatLabel]="'always'">
@@ -64,15 +91,5 @@
                 </div>
             </mat-tab>
         </mat-tab-group>
-        <div class="save-btn">
-            <button (click)="submit()" mat-raised-button color="primary">
-                <fa name="check"></fa>Save Template
-            </button>
-        </div>
-        <div class="save-btn">
-            <button (click)="sendmail()" mat-raised-button color="primary">
-                <fa name="check"></fa>Send Mail
-            </button>
-        </div>
     </div>
 </div>

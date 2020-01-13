@@ -10,7 +10,9 @@ import com.campaign.entity.CampaignContact;
 
 public interface CampaignContactRepository extends JpaRepository<CampaignContact, String>{
 
-	@Query("SELECT contact from CampaignContact contact where contact.listName = :list")
+	@Query("SELECT contact from CampaignContact contact where contact.listName like :list")
 	List<CampaignContact> findContactsByList(@Param("list") String listName);
 	
+	@Query("SELECT DISTINCT contact.listName from CampaignContact contact")
+	List<String> fetchContactLists();
 }
